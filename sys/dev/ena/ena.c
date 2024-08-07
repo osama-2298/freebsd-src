@@ -4029,6 +4029,8 @@ ena_detach(device_t pdev)
 
 	ether_ifdetach(adapter->ifp);
 
+	ifmedia_removeall(&adapter->media);
+
 	/* Stop timer service */
 	ENA_LOCK_LOCK();
 	ENA_TIMER_DRAIN(adapter);
